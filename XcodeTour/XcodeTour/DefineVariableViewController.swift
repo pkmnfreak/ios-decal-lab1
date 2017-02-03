@@ -1,7 +1,8 @@
 import UIKit
 
 class DefineVariableViewController: UIViewController {
-
+    
+    var textToDisplay = [String]()
     // Define any instance variables here
     
     override func viewDidLoad() {
@@ -28,16 +29,16 @@ class DefineVariableViewController: UIViewController {
         
         // TODO: Transfer the values in formattedTextArray to the textToDisplay property in our prepare for segue function
         // Hint: How would you store a value if you wanted to access it across different functions?
-        
-
+        textToDisplay = formattedTextArray
         matchTheArrayHere()
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? NiceWorkViewController {
             
             // TODO: Assign the destinationVC's textToDisplay property to what was stored in formattedTextArray above
-            destinationVC.textToDisplay = [] // Change this!
+            destinationVC.textToDisplay = textToDisplay // Change this!
         }
     }
 }
